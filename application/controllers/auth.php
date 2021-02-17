@@ -61,7 +61,7 @@ class Auth extends CI_Controller
                     }
                     # code...
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                    $this->session->set_flashdata('message_auth', '<div class="alert alert-danger" role="alert">
                     password salah</div>');
                     redirect('auth');
                     # code...
@@ -69,7 +69,7 @@ class Auth extends CI_Controller
 
                 # code...
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                $this->session->set_flashdata('message_auth', '<div class="alert alert-danger" role="alert">
                 email belum teraktivasi</div>');
                 redirect('auth');
                 # code...
@@ -77,7 +77,7 @@ class Auth extends CI_Controller
 
             # code...
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+            $this->session->set_flashdata('message_auth', '<div class="alert alert-danger" role="alert">
             email belum terdaftar</div>');
             redirect('auth');
 
@@ -120,7 +120,7 @@ class Auth extends CI_Controller
                 'CREATED' => time(),
             ];
             $this->db->insert('tb_users', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            $this->session->set_flashdata('message_auth', '<div class="alert alert-success" role="alert">
             Selamat akun anda telah terbuat! silahkan aktivasi</div>');
             redirect('auth');
         }
@@ -130,7 +130,7 @@ class Auth extends CI_Controller
 
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('id_rule');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        $this->session->set_flashdata('message_auth', '<div class="alert alert-success" role="alert">
         Anda sudah keluar</div>');
         redirect('auth');
     }
